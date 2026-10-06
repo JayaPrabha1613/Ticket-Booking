@@ -1,0 +1,1325 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #090610;
+    --panel: rgba(27, 17, 42, 0.85);
+    --purple: #a779ff;
+    --light-purple: #c6a6ff;
+    --pink: #ff8bd1;
+    --text: #fbf8ff;
+    --muted: #c1b5d0;
+    --line: rgba(190, 151, 255, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background:
+        radial-gradient(
+            ellipse at 15% 10%,
+            #24113d 0,
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 90% 45%,
+            #1d1030 0,
+            transparent 32%
+        ),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        radial-gradient(
+            rgba(255, 255, 255, 0.45) 0.7px,
+            transparent 0.7px
+        );
+    background-size: 36px 36px;
+    opacity: 0.12;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    transition: 0.25s ease;
+}
+
+/* NAVBAR */
+
+.navbar {
+    min-height: 82px;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    background: rgba(9, 6, 16, 0.88);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--line);
+
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #eee5fa;
+    text-decoration: none;
+    display: inline-block;
+    padding: 9px 13px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(167, 121, 255, 0.25),
+            rgba(255, 139, 209, 0.1)
+        );
+    border-color: var(--line);
+    box-shadow: 0 0 22px rgba(167, 121, 255, 0.12);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 690px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 90px 8%;
+
+    position: relative;
+    isolation: isolate;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 6, 16, 0.94) 0%,
+            rgba(17, 8, 30, 0.73) 48%,
+            rgba(9, 6, 16, 0.25) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #090610 0%,
+            transparent 32%
+        ),
+        url("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1800")
+        center / cover;
+}
+
+.hero::after {
+    content: "BORAHAE ✦";
+
+    position: absolute;
+    right: 5%;
+    bottom: 9%;
+
+    color: rgba(255, 255, 255, 0.16);
+
+    font:
+        700 clamp(26px, 5vw, 64px)
+        "Space Grotesk",
+        sans-serif;
+
+    letter-spacing: 8px;
+
+    transform: rotate(-8deg);
+}
+
+.hero-content {
+    max-width: 690px;
+    position: relative;
+    z-index: 1;
+}
+
+.small-title,
+.eyebrow {
+    color: var(--pink);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font:
+        700 clamp(44px, 7vw, 82px) / 1.02
+        "Space Grotesk",
+        sans-serif;
+
+    margin: 20px 0;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--light-purple);
+
+    text-shadow:
+        0 0 35px rgba(167, 121, 255, 0.45);
+}
+
+.hero p {
+    max-width: 570px;
+    color: #e1d7ec;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* BUTTON */
+
+.main-btn,
+.card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    background:
+        linear-gradient(
+            115deg,
+            #9b65ff,
+            #cf7eea
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 13px 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 28px rgba(117, 61, 205, 0.22);
+}
+
+.main-btn:hover,
+.card-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 34px rgba(167, 121, 255, 0.32);
+
+    filter: brightness(1.08);
+}
+
+/* SECTIONS */
+
+.events,
+.why-army,
+.values-section,
+.booking-steps,
+.contact-extra {
+    padding: 82px 7%;
+}
+
+.events {
+    text-align: center;
+}
+
+.events h2,
+.section-heading h2 {
+    font:
+        700 clamp(30px, 4vw, 44px)
+        "Space Grotesk",
+        sans-serif;
+
+    color: var(--light-purple);
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 38px;
+}
+
+.section-heading .eyebrow {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+/* EVENT CARDS */
+
+.event-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+
+    text-align: left;
+
+    margin-top: 38px;
+}
+
+.event-card,
+.feature-card,
+.product-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 24, 55, 0.94),
+            rgba(18, 12, 28, 0.96)
+        );
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.event-card:hover,
+.feature-card:hover,
+.product-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(198, 166, 255, 0.7);
+
+    box-shadow:
+        0 22px 48px rgba(0, 0, 0, 0.3);
+}
+
+.event-card img {
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+    filter: saturate(0.85);
+}
+
+.event-info {
+    padding: 24px;
+}
+
+.event-info h3,
+.feature-card h3 {
+    color: var(--light-purple);
+
+    font:
+        600 22px
+        "Space Grotesk",
+        sans-serif;
+
+    margin-bottom: 10px;
+}
+
+.event-info p {
+    color: var(--muted);
+    margin: 6px 0;
+}
+
+.event-info .card-btn {
+    margin-top: 16px;
+}
+
+.event-label,
+.product-tag {
+    display: inline-block;
+
+    color: var(--pink);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+/* PAGE BANNER */
+
+.page-banner {
+    min-height: 270px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(16, 7, 29, 0.88),
+            rgba(62, 27, 94, 0.68),
+            rgba(9, 6, 16, 0.9)
+        ),
+        url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600")
+        center / cover;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.page-banner::after {
+    content: "✦";
+
+    color: rgba(255, 255, 255, 0.18);
+
+    font-size: 190px;
+
+    position: absolute;
+
+    right: 8%;
+    top: -55px;
+}
+
+.page-banner h1 {
+    font:
+        700 clamp(38px, 5vw, 58px)
+        "Space Grotesk",
+        sans-serif;
+
+    margin-bottom: 8px;
+
+    z-index: 1;
+}
+
+.page-banner p {
+    color: #e0cfff;
+    z-index: 1;
+}
+
+/* ABOUT */
+
+.about-section {
+    display: flex;
+
+    gap: 52px;
+
+    padding: 80px 8%;
+
+    align-items: center;
+}
+
+.about-image,
+.about-content {
+    width: 50%;
+}
+
+.about-image img {
+    width: 100%;
+    height: 470px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--line);
+
+    box-shadow:
+        18px 18px 0 rgba(167, 121, 255, 0.08);
+}
+
+.about-content h2 {
+    color: var(--light-purple);
+
+    font:
+        700 36px
+        "Space Grotesk",
+        sans-serif;
+
+    margin-bottom: 18px;
+}
+
+.about-content p {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.about-box {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.about-box div {
+    flex: 1;
+
+    padding: 17px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+}
+
+.about-box h3 {
+    color: var(--pink);
+    margin-bottom: 7px;
+}
+
+.about-box p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* BOOKING */
+
+.booking-section,
+.contact-section,
+.feedback-section {
+    display: flex;
+
+    max-width: 1120px;
+
+    margin: 72px auto;
+
+    gap: 35px;
+
+    padding: 0 22px;
+
+    align-items: stretch;
+}
+
+.booking-image {
+    width: 46%;
+
+    position: relative;
+
+    min-height: 650px;
+}
+
+.booking-image img {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 650px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+.booking-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(9, 6, 16, 0.85),
+            transparent 60%
+        );
+}
+
+.booking-text {
+    position: absolute;
+
+    bottom: 30px;
+    left: 28px;
+
+    z-index: 1;
+}
+
+.booking-text h2 {
+    font:
+        700 34px
+        "Space Grotesk",
+        sans-serif;
+}
+
+.booking-text p {
+    margin-top: 8px;
+    color: #e3d5f4;
+}
+
+/* FORMS */
+
+.booking-form,
+.contact-form,
+.feedback-form {
+    flex: 1;
+
+    min-width: 0;
+
+    background: var(--panel);
+
+    backdrop-filter: blur(10px);
+
+    padding: 34px;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--line);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.2);
+}
+
+.booking-form h2,
+.contact-form h2,
+.feedback-form h2 {
+    color: var(--light-purple);
+
+    font:
+        700 29px
+        "Space Grotesk",
+        sans-serif;
+
+    margin-bottom: 23px;
+}
+
+.booking-form label,
+.feedback-form > label {
+    display: block;
+
+    color: #e4d8f0;
+
+    margin: 13px 0 7px;
+
+    font-size: 14px;
+}
+
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.booking-form input,
+.booking-form select,
+.contact-form input,
+.contact-form textarea,
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: rgba(9, 6, 16, 0.8);
+
+    color: white;
+
+    border: 1px solid #49345f;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    margin-bottom: 12px;
+
+    transition:
+        border 0.2s,
+        box-shadow 0.2s;
+}
+
+select option {
+    background: #170f22;
+    color: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--purple);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(167, 121, 255, 0.12);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.booking-form button,
+.contact-form button,
+.feedback-form button,
+.product-card button {
+    border: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            #9b65ff,
+            #cf7eea
+        );
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    margin-top: 12px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+.booking-form button:hover,
+.contact-form button:hover,
+.feedback-form button:hover,
+.product-card button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* MERCHANDISE */
+
+.shop-section {
+    padding: 72px 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 23px;
+}
+
+.product-card {
+    text-align: center;
+
+    padding-bottom: 25px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 255px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    color: var(--light-purple);
+
+    margin: 10px 10px 8px;
+
+    font:
+        600 19px
+        "Space Grotesk",
+        sans-serif;
+}
+
+.product-card p {
+    color: var(--muted);
+
+    padding: 0 16px;
+
+    font-size: 14px;
+}
+
+.product-card h4 {
+    font-size: 21px;
+
+    margin-top: 13px;
+
+    color: var(--pink);
+}
+
+.product-tag {
+    margin-top: 15px;
+}
+
+/* CONTACT */
+
+.contact-info {
+    flex: 1;
+
+    min-width: 0;
+
+    background: var(--panel);
+
+    border: 1px solid var(--line);
+
+    padding: 32px;
+
+    border-radius: 20px;
+}
+
+.contact-info h2 {
+    color: var(--light-purple);
+
+    font:
+        700 29px
+        "Space Grotesk",
+        sans-serif;
+
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin: 14px 0;
+}
+
+.contact-info img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 13px;
+
+    margin-top: 20px;
+}
+
+/* FEEDBACK */
+
+.feedback-image {
+    width: 44%;
+
+    background: var(--panel);
+
+    border: 1px solid var(--line);
+
+    padding: 24px;
+
+    border-radius: 20px;
+}
+
+.feedback-image img {
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+}
+
+.feedback-image h2 {
+    color: var(--light-purple);
+
+    font:
+        700 25px
+        "Space Grotesk",
+        sans-serif;
+
+    margin: 18px 0 8px;
+}
+
+.feedback-image p {
+    color: var(--muted);
+}
+
+.rating {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 12px;
+
+    flex-wrap: wrap;
+}
+
+.rating label {
+    cursor: pointer;
+
+    font-size: 19px;
+
+    padding: 5px;
+}
+
+.rating input {
+    display: none;
+}
+
+/* FEATURE CARDS */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.feature-card {
+    padding: 28px;
+}
+
+.feature-card p {
+    color: var(--muted);
+}
+
+.feature-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 18px;
+
+    border-radius: 13px;
+
+    color: var(--pink);
+
+    background:
+        rgba(167, 121, 255, 0.15);
+
+    border: 1px solid var(--line);
+
+    font-weight: 700;
+}
+
+/* PURPLE CALLOUT */
+
+.purple-callout {
+    margin: 15px 7% 75px;
+
+    padding: 38px 42px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(102, 55, 164, 0.42),
+            rgba(39, 20, 59, 0.8)
+        );
+
+    border: 1px solid var(--line);
+}
+
+.purple-callout h2,
+.merch-note h2,
+.feedback-prompt h2 {
+    font:
+        700 clamp(25px, 3vw, 36px)
+        "Space Grotesk",
+        sans-serif;
+
+    margin: 7px 0;
+}
+
+.purple-callout p,
+.merch-note p,
+.feedback-prompt p {
+    color: var(--muted);
+}
+
+/* NOTICE */
+
+.notice {
+    max-width: 900px;
+
+    margin: 30px auto 0;
+
+    padding: 15px 18px;
+
+    color: #d8c6ef;
+
+    background:
+        rgba(167, 121, 255, 0.08);
+
+    border-left: 3px solid var(--purple);
+
+    border-radius: 0 10px 10px 0;
+
+    font-size: 13px;
+}
+
+/* BOOKING STEPS */
+
+.steps-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.steps-grid > div {
+    padding: 25px;
+
+    border: 1px solid var(--line);
+
+    background: var(--panel);
+
+    border-radius: 15px;
+}
+
+.steps-grid span {
+    display: inline-flex;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--purple);
+
+    font-weight: 700;
+
+    margin-bottom: 13px;
+}
+
+.steps-grid h3 {
+    color: var(--light-purple);
+
+    margin-bottom: 8px;
+}
+
+.steps-grid p {
+    color: var(--muted);
+}
+
+/* MERCH NOTE */
+
+.merch-note {
+    margin: 0 7% 75px;
+
+    padding: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
+}
+
+.merch-note div {
+    flex: 1;
+}
+
+/* FEEDBACK PROMPT */
+
+.feedback-prompt {
+    max-width: 850px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+.feedback-tags {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    margin-top: 22px;
+}
+
+.feedback-tags span {
+    padding: 7px 14px;
+
+    border: 1px solid var(--line);
+
+    background:
+        rgba(167, 121, 255, 0.1);
+
+    border-radius: 30px;
+
+    color: #e5d6fa;
+
+    font-size: 13px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 26px 18px;
+
+    background:
+        rgba(5, 3, 9, 0.85);
+
+    color: #a99ab9;
+
+    border-top: 1px solid var(--line);
+
+    margin-top: 35px;
+
+    font-size: 14px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .event-container,
+    .shop-section {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .about-section {
+        gap: 30px;
+
+        padding: 60px 5%;
+    }
+
+    .about-box {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 720px) {
+
+    .navbar {
+        padding: 18px 4%;
+    }
+
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 570px;
+        padding: 70px 7%;
+
+        background-position:
+            58% center;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-section,
+    .booking-section,
+    .contact-section,
+    .feedback-section {
+        flex-direction: column;
+
+        margin: 45px auto;
+    }
+
+    .about-image,
+    .about-content,
+    .booking-image,
+    .contact-info,
+    .feedback-image {
+        width: 100%;
+    }
+
+    .about-image img {
+        height: 330px;
+    }
+
+    .booking-image,
+    .booking-image img {
+        min-height: 350px;
+        height: 350px;
+    }
+
+    .booking-form,
+    .contact-form,
+    .feedback-form {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .feature-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .purple-callout,
+    .merch-note {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        margin-left: 5%;
+        margin-right: 5%;
+
+        padding: 28px;
+    }
+
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 520px) {
+
+    .nav-links {
+        flex-direction: row;
+    }
+
+    .nav-links li {
+        flex: 0 0 auto;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .page-banner {
+        min-height: 220px;
+    }
+
+    .page-banner h1 {
+        font-size: 36px;
+    }
+
+    .event-container,
+    .shop-section {
+        grid-template-columns: 1fr;
+    }
+
+    .about-box {
+        flex-direction: column;
+    }
+
+    .events,
+    .why-army,
+    .values-section,
+    .booking-steps,
+    .contact-extra {
+        padding: 55px 5%;
+    }
+
+    .event-card img {
+        height: 215px;
+    }
+
+    .purple-callout {
+        margin-bottom: 50px;
+    }
+
+}

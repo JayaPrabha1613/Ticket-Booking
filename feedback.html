@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | BTS ARMY</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #090610;
+            color: white;
+        }
+
+        header {
+            background: rgba(15, 8, 25, 0.95);
+            padding: 20px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #6d3fb5;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo span {
+            color: #b77aff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c18aff;
+        }
+
+        .page-banner {
+            text-align: center;
+            padding: 90px 20px;
+            background:
+                linear-gradient(rgba(20, 5, 35, 0.75), rgba(20, 5, 35, 0.9)),
+                url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .eyebrow {
+            color: #c28cff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .page-banner h1 {
+            font-size: 55px;
+            margin: 15px 0;
+        }
+
+        .page-banner p {
+            color: #d0c6da;
+            font-size: 18px;
+        }
+
+        .feedback-section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 70px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .feedback-image,
+        .feedback-form {
+            background: rgba(30, 18, 45, 0.9);
+            border: 1px solid rgba(177, 121, 255, 0.35);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(104, 45, 160, 0.2);
+        }
+
+        .feedback-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feedback-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .feedback-image h2,
+        .feedback-form h2 {
+            font-size: 30px;
+            margin: 12px 0 15px;
+        }
+
+        .feedback-image p {
+            color: #c8bfd2;
+            line-height: 1.7;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feedback-form input[type="text"],
+        .feedback-form input[type="email"],
+        .feedback-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #543477;
+            border-radius: 10px;
+            background: #120b1c;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .feedback-form input[type="text"]:focus,
+        .feedback-form input[type="email"]:focus,
+        .feedback-form textarea:focus {
+            border-color: #b77aff;
+            box-shadow: 0 0 10px rgba(183, 122, 255, 0.2);
+        }
+
+        .feedback-form textarea {
+            resize: vertical;
+        }
+
+        .feedback-form > label {
+            color: #ddd;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .rating label {
+            background: #1a1027;
+            border: 1px solid #543477;
+            padding: 9px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .rating label:hover {
+            background: #32194c;
+            border-color: #b77aff;
+        }
+
+        .rating input {
+            margin-right: 4px;
+        }
+
+        .feedback-form button {
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #8e4de8, #d66fca);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .feedback-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(176, 93, 235, 0.4);
+        }
+
+        .feedback-prompt {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto 80px;
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+            background: linear-gradient(
+                135deg,
+                #241039,
+                #130b1d
+            );
+            border: 1px solid #543477;
+        }
+
+        .feedback-prompt h2 {
+            font-size: 35px;
+            margin: 15px 0;
+        }
+
+        .feedback-prompt p {
+            max-width: 700px;
+            margin: auto;
+            color: #c8bfd2;
+            line-height: 1.7;
+        }
+
+        .feedback-tags {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .feedback-tags span {
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: #251438;
+            border: 1px solid #694397;
+            color: #d9baff;
+            transition: 0.3s;
+        }
+
+        .feedback-tags span:hover {
+            background: #6c3ca0;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #050308;
+            border-top: 1px solid #3b2354;
+            color: #aaa;
+        }
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .feedback-section {
+                grid-template-columns: 1fr;
+            }
+
+            .page-banner h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .page-banner {
+                padding: 65px 15px;
+            }
+
+            .page-banner h1 {
+                font-size: 35px;
+            }
+
+            .feedback-section {
+                width: 94%;
+            }
+
+            .feedback-image,
+            .feedback-form {
+                padding: 20px;
+            }
+
+            .feedback-prompt {
+                width: 94%;
+                padding: 30px 20px;
+            }
+
+            .feedback-prompt h2 {
+                font-size: 28px;
+            }
+
+            .rating {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            BTS <span>ARMY</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="bookticket.html">Book Ticket</a></li>
+            <li><a href="merchandise.html">Merchandise</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="feedback.html" class="active">Feedback</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="page-banner">
+
+    <span class="eyebrow">YOUR VOICE MATTERS</span>
+
+    <h1>Feedback</h1>
+
+    <p>Help us improve your ARMY experience</p>
+
+</section>
+
+<section class="feedback-section">
+
+    <div class="feedback-image">
+
+        <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=900">
+
+        <span class="eyebrow">ARMY EXPERIENCE</span>
+
+        <h2>Tell Us Your Experience 💜</h2>
+
+        <p>
+            Your feedback helps us understand what you enjoyed
+            and what we can improve.
+        </p>
+
+    </div>
+
+    <form class="feedback-form">
+
+        <span class="eyebrow">RATE YOUR EXPERIENCE</span>
+
+        <h2>Give Your Feedback</h2>
+
+        <input
+            type="text"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="email"
+            placeholder="Your Email"
+            required
+        >
+
+        <label>
+            How would you rate our website?
+        </label>
+
+        <div class="rating">
+
+            <label>
+                <input type="radio" name="rating" required>
+                ⭐
+            </label>
+
+            <label>
+                <input type="radio" name="rating">
+                ⭐⭐
+            </label>
+
+            <label>
+                <input type="radio" name="rating">
+                ⭐⭐⭐
+            </label>
+
+            <label>
+                <input type="radio" name="rating">
+                ⭐⭐⭐⭐
+            </label>
+
+            <label>
+                <input type="radio" name="rating">
+                ⭐⭐⭐⭐⭐
+            </label>
+
+        </div>
+
+        <textarea
+            placeholder="Write your feedback..."
+            rows="7"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Submit Feedback
+        </button>
+
+    </form>
+
+</section>
+
+<section class="feedback-prompt">
+
+    <span class="eyebrow">
+        HELP US IMPROVE
+    </span>
+
+    <h2>
+        Every Voice Matters
+    </h2>
+
+    <p>
+        Useful feedback can cover page design, navigation,
+        readability, booking forms, merchandise or accessibility.
+    </p>
+
+    <div class="feedback-tags">
+
+        <span>Design</span>
+        <span>Navigation</span>
+        <span>Booking</span>
+        <span>Merchandise</span>
+        <span>Accessibility</span>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 BTS ARMY Ticket Booking | Made with 💜 for ARMY
+    </p>
+
+</footer>
+
+</body>
+</html>
